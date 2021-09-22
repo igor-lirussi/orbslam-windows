@@ -1,0 +1,2 @@
+ffmpeg -i video.mp4 -s 720x480 -c:a copy video-M.mp4
+ffmpeg -i video.mp4 -s 480x320 -c:a copy video-P.mp4

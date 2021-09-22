@@ -38,6 +38,9 @@ if(NOT OpenCV_FOUND)
    endif()
 endif()
 
+#igor
+SET(EIGEN3_INCLUDE_DIR "D:/PROGRAMMI/eigen-solo-estratto")
+
 find_package(Eigen3 3.1.0 REQUIRED)
 find_package(Pangolin REQUIRED)
 
@@ -113,3 +116,15 @@ add_executable(mono_euroc
 Examples/Monocular/mono_euroc.cc)
 target_link_libraries(mono_euroc ${PROJECT_NAME})
 
+add_executable(mono_webcam
+Examples/Monocular/mono_webcam.cc)
+target_link_libraries(mono_webcam ${PROJECT_NAME})
+
+add_executable(mono_rtsp_igor
+Examples/Monocular/mono_rtsp_igor.cc)
+target_link_libraries(mono_rtsp_igor ${PROJECT_NAME})
+
+
+add_executable(mono_http_igor
+Examples/Monocular/mono_http_igor.cc)
+target_link_libraries(mono_http_igor ${PROJECT_NAME})

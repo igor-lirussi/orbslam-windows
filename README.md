@@ -51,3 +51,86 @@ If you want to build any of the examples (such as mono_euroc), do the following:
 - Right click on it and press build
 
 Then you will find them, say if you do mono_, in (orbslam-windows\Examples\Monocular\Release)
+
+
+### HOW TO EXECUTE
+a.k.a. my commands collection
+
+inside folder "orbslam-windows" with command line (I used GIT BASH)
+
+NOTE: change "sequenze_prova" folder with your folder containing the datasets
+#### MONOCULAR
+- ###### EuRoC V1
+Download a sequence (ASL format) from http://projects.asl.ethz.ch/datasets/doku.php?id=kmavvisualinertialdatasets
+```
+./Examples/Monocular/Release/mono_euroc Vocabulary/ORBvoc.txt Examples/Monocular/EuRoC.yaml sequenze_prova/EuRoC/V1_01_easy/mav0/cam0/data Examples/Monocular/EuRoC_TimeStamps/V101.txt
+```
+
+- ###### EuRoC MH1
+Download the dataset like before
+```
+./Examples/Monocular/Release/mono_euroc Vocabulary/ORBvoc.txt Examples/Monocular/EuRoC.yaml sequenze_prova/EuRoC/MH_01/cam0/data Examples/Monocular/EuRoC_TimeStamps/MH01.txt
+```
+
+- ###### TUM freiburg 1
+Download a sequence from http://vision.in.tum.de/data/datasets/rgbd-dataset/download and uncompress it.
+```
+./Examples/Monocular/Release/mono_tum Vocabulary/ORBvoc.txt Examples/Monocular/TUM1.yaml sequenze_prova/TUM/rgbd_dataset_freiburg1_desk
+```
+
+- ###### KITTI
+Download the dataset (grayscale images) from http://www.cvlibs.net/datasets/kitti/eval_odometry.php
+```
+./Examples/Monocular/Release/mono_kitti Vocabulary/ORBvoc.txt Examples/Monocular/KITTI04-12.yaml sequenze_prova/KITTI/13
+```
+
+#### RGB-D
+##### You need to associate RGB and Depth with Python (I used Pyhton 2):
+```
+python associate.py sequenze_prova/TUM/rgbd_dataset_freiburg1_desk/rgb.txt sequenze_prova/TUM/rgbd_dataset_freiburg1_desk/depth.txt > associations.txt
+```
+##### Then from command line:
+- TUM freiburg 1 associations created:
+```
+./Examples/RGB-D/Release/rgbd_tum Vocabulary/ORBvoc.txt Examples/RGB-D/TUM1.yaml sequenze_prova/TUM/rgbd_dataset_freiburg1_desk associations.txt
+```
+
+- TUM freiburg 1 associations default:
+```
+./Examples/RGB-D/Release/rgbd_tum Vocabulary/ORBvoc.txt Examples/RGB-D/TUM1.yaml sequenze_prova/TUM/rgbd_dataset_freiburg1_desk Examples/RGB-D/associations/fr1_desk.txt
+```
+
+#### STEREO
+- ###### EuroC V1
+```
+./Examples/Stereo/Release/stereo_euroc Vocabulary/ORBvoc.txt Examples/Stereo/EuRoC.yaml sequenze_prova/EuRoC/V1_01_easy/mav0/cam0/data sequenze_prova/EuRoC/V1_01_easy/mav0/cam1/data Examples/Stereo/EuRoC_TimeStamps/V101.txt
+```
+
+- ###### EuroC MH1
+```
+./Examples/Stereo/Release/stereo_euroc Vocabulary/ORBvoc.txt Examples/Stereo/EuRoC.yaml sequenze_prova/EuRoC/MH_01/cam0/data sequenze_prova/EuRoC/MH_01/cam1/data Examples/Stereo/EuRoC_TimeStamps/MH01.txt
+```
+
+- ###### KITTI
+```
+./Examples/Stereo/Release/stereo_kitti Vocabulary/ORBvoc.txt Examples/Stereo/KITTI04-12.yaml sequenze_prova/KITTI/13
+```
+
+#### WEBCAM
+```
+./Examples/Monocular/Release/mono_webcam Vocabulary/ORBvoc.txt Examples/Monocular/webcam.yaml
+```
+
+#### HTTP STREAM
+```
+./Examples/Monocular/Release/mono_http_igor Vocabulary/ORBvoc.txt Examples/Monocular/webcamMIA.yaml http://10.1.20.140:8080
+```
+
+#### VIDEO ( video goes inside orblasm-windows-http)
+```
+./Examples/Monocular/Release/mono_http_igor Vocabulary/ORBvoc.txt Examples/Monocular/webcamMIA.yaml ./video.mp4
+```
+#### Video from smartphone
+```
+./Examples/Monocular/Release/mono_http_igor Vocabulary/ORBvoc.txt Examples/Monocular/smartphoneMIO.yaml ./videosmartphone.mp4
+```
