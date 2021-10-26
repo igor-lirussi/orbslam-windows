@@ -1,6 +1,10 @@
 # ORB_SLAM2_Windows
 Easy build for ORB Slam 2 on Windows
 
+## Video of the Result
+[![ORB-SLAM Windows](http://i3.ytimg.com/vi/ZyyxhnueXQw/maxresdefault.jpg)](https://youtu.be/ZyyxhnueXQw "ORB-SLAM 2 - in Cesena, Simultaneous Localization And Mapping Test")
+
+
 1. Make a directory called build in orbslam-windows/Thirdparty/DBoW2
 - Run CMake GUI and set source code to orbslam-windows/Thirdparty/DBoW2 and where to build the binaries to orbslam-windows/Thirdparty/DBoW2/build
 - Press Configure and choose Visual Studio 14 2015 Win64 or Visual Studio 12 2013 Win64
